@@ -11,9 +11,8 @@ function formatQueryParams(params) {
 function displayResults(responseJson) {
   console.log(responseJson);
   $('#results-list').empty();
-  
+
   for (let i = 0; i < responseJson.data.length; i++) {
-    
     $('#results-list').append(
       `<li><h3>${responseJson.data[i].fullName}</h3> 
       <p><b>State:</b> ${responseJson.data[i].states}</p>
@@ -24,12 +23,16 @@ function displayResults(responseJson) {
   }
 
   $('#results').removeClass('hidden');
+
+  if(responseJson.total==='0') {
+    $('#results').html('<h2>No result found</h2>');
+  }
 }
 
 function getYouTubeVideos(query, maxResults = 10) {
   const params = {
     api_key: apiKey,
-    q: query,
+    stateCode: query,
     limit: maxResults
   };
   const queryString = formatQueryParams(params);
