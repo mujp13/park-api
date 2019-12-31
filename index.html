@@ -14,7 +14,7 @@
 
       <form id="js-form">
         <label class="search-term">Enter state</label>
-        <input type="text" name="search-term" id="js-search-term" placeholder="ex) TX" required />
+        <input type="text" name="search-term" pattern="[A-Za-z]{2}(,[A-Za-z]{2})+" id="js-search-term" placeholder="No spaces (ex: ca,tx,ny)" required />
 
         <label class="max-results">Max results to return</label>
         <input type="number" name="max-results" id="js-max-results" value="10" />
