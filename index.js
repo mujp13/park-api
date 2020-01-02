@@ -56,7 +56,7 @@ function getYouTubeVideos(query, maxResults = 10) {
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    const searchTerm = $('#js-search-term').val();
+    const searchTerm = $('#js-search-term').val().replace(/\s+/g,'');
     const maxResults = $('#js-max-results').val();
     getYouTubeVideos(searchTerm, maxResults);
   });
